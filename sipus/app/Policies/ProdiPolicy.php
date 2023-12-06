@@ -11,56 +11,66 @@ class ProdiPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
-        return $user->level == "admin" || $user->level == "user";
+        //
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Prodi $prodi)
+    public function view(User $user, Prodi $prodi): bool
     {
-        return $user->level == "admin" || $user->level == "user";
+        //
+        return in_array($user->email, [
+            'rachmat.nur@gmail.com'
+        ]);
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
-        return $user->level == "admin";
+        //
+        return in_array($user->email, [
+            'rachmat.nur@gmail.com',
+            'ahmad@gmail.com'
+        ]);
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Prodi $prodi)
+    public function update(User $user, Prodi $prodi): bool
     {
-        return $user->level == "admin";
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Prodi $prodi)
+    public function delete(User $user, Prodi $prodi): bool
     {
-        return $user->level == "admin";
+        //
+        return in_array($user->email, [
+            'rachmat.nur@gmail.com'
+        ]);
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Prodi $prodi)
+    public function restore(User $user, Prodi $prodi): bool
     {
-        return $user->level == "admin";
+        //
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Prodi $prodi)
+    public function forceDelete(User $user, Prodi $prodi): bool
     {
-        return $user->level == "admin";
+        //
     }
 }
